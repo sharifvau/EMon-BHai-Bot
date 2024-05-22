@@ -1,6 +1,7 @@
 {
   "ryukodev": "https://main.ryukodev.repl.co",
   "Emondev": "http://fi3.bot-hosting.net:20536",
+  "Emonmeta": "http://fi1.bot-hosting.net:5980",
   "talk": "https://api.ryukodev.repl.co/talk/get/",
   "teach": "https://api.ryukodev.repl.co/talk/add/",
   "biblesearch": "https://bible-api.com/",
