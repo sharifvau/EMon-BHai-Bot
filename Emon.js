@@ -33,7 +33,7 @@ module.exports = async ({ api, event }) => {
     },
     autoRestart: {
       status: true,
-      time: 40, // 40 minutes
+      time: 59, // 59 minutes
       note: 'to avoid problems, enable periodic bot restarts, set the status to false if you want to disable auto restart function.'
     },
     accpetPending: {
