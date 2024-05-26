@@ -11,7 +11,7 @@ module.exports.config = {
   prefix: 'awto',
   description: "Dont Change This Credits Otherwisw Your Bot Lol",
   usages: "sim (ask) reply simsimi",
-  category: "user",
+  category: "admin",
   cooldowns: 2
 };
 
