@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "chapri",
+  name: "nub",
   version: "0.0.2",
   permission: 2,
   prefix: "awto",
