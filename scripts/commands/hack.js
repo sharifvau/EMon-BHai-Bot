@@ -1,17 +1,17 @@
 module.exports.config = {
-  name: "hack",
-  version: "1.0.0",
-  permssion: 0,
-  credits: "Emon",
+  name: "hack", 
+  version: "1.0.0", 
+  permission: 0,
+  credits: "Nayan",
+  description: "example",
   prefix: true,
-  description: "hack",
-  category: "hack",
-  usages: "hack @mention",
+  category: "Fun", 
+  usages: "user", 
+  cooldowns: 5,
   dependencies: {
         "axios": "",
         "fs-extra": ""
-  },
-  cooldowns: 0
+  }
 };
 
 module.exports.wrapText = (ctx, name, maxWidth) => {
