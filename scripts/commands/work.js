@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "work",
 	version: "1.0.1",
 	permission: 0,
-	credits: "Emon",
+	credits: "ryuko",
 	prefix: true,
 	description: "earning money",
 	category: "economy",
