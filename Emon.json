@@ -5,20 +5,20 @@
   "notification": true,
   "approval": false,
   "OPERATORNAME": "EMON HAWLADAR",
-  "OPERATORID": "100075290587473",
+  "OPERATORID": "61559134070491",
   "OPERATORLINK": "https://www.facebook.com/EMon.BHai.FACEBOOK",
   "BOTNAME": "EMon-BHai-BOT",
-  "PREFIX": "+",
+  "PREFIX": "!",
   "OPERATOR": [
-    "100075290587473"
+    "61559134070491"
   ],
   "ADMINBOT": [
-    "100075290587473",
-    "uid",
+    "61559134070491",
+    "",
     "uid"
   ],
   "OWNER": ["100075290587473"],
-  "APPROVED": [],
+  "APPROVED": ["61559134070491"],
   "disabledcmds": [],
   "disabledevents": [],
   "note": "make sure that the bot name you entered is all lowercase"
