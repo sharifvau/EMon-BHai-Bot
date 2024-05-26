@@ -1,7 +1,7 @@
 module.exports.config = {
 	name: "video1",
 	version: "1.0.3",
-	permssion: 0,
+	permssion: 2,
 	credits: "v1",
         prefix: 'awto',
 	description: "video album",
