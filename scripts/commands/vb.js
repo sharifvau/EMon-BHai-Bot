@@ -3,7 +3,7 @@ module.exports.config = {
 	version: "1.0.1",
 	permssion: 0,
 	credits: "Emon",
-  prefix: 'awto',
+        prefix: 'awto',
 	description: "Make the bot return google's audio file via text",
 	category: "user",
 	usages: "vb [Text]",
