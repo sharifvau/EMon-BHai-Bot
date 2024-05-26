@@ -1,7 +1,7 @@
 module.exports.config = {
-  name: "nub",
+  name: "bot",
   version: "0.0.2",
-  permission: 2,
+  permission: 0,
   prefix: "awto",
   credits: "Nayan",
   description: "talk with bot",
