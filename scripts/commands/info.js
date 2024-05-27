@@ -55,4 +55,3 @@ TODAY IS TIME : ${juswa}
 
 BOT IS RUNNING ${hours}:${minutes}:${seconds}.
 
-THANKS FOR USING ${global.config.BOTNAME} 
