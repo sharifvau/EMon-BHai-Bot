@@ -1,11 +1,11 @@
 module.exports.config = {
 	name: "qrscan",
   version: "1.0.0",
-  permission: 0,
+  permission: 2,
   credits: "Nayan",
   description: " ",
   prefix: false, 
-  category: "user", 
+  category: "admin", 
   usages: "text",
   cooldowns: 5,
   dependencies: {
