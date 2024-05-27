@@ -1,10 +1,11 @@
 module.exports.config = {
   name: "ytdl",
   version: "1.0.0",
-  hasPermssion: 0,
-  credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓", //thanks for 𝙍𝙖𝙩𝙪𝙡 𝙃𝙖𝙨𝙨𝙖𝙣 for reference
-  description: "Play video from youtube",
-  commandCategory: "...",
+  permssion: 0,
+ prefix: false,
+credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓", //thanks for 𝙍𝙖𝙩𝙪𝙡 𝙃𝙖𝙨𝙨𝙖𝙣 for reference
+  description: "Play video from youtube",	
+  category: "without prefix",
   usages: "[title]",
   cooldowns: 10,
   dependencies: {
