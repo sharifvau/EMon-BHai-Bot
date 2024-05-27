@@ -1,23 +1,25 @@
 {
-  "author": "BADBOY",
+  "author": "Rock",
   "developermode": false,
   "language": "en",
   "notification": true,
   "approval": false,
   "OPERATORNAME": "BAD BOY",
   "OPERATORID": "61559134070491",
-  "OPERATORLINK": "PORE ADD KORMU",
-  "BOTNAME": "YOUR BBY",
+  "OPERATORLINK": "",
+  "BOTNAME": "Your-Bby",
   "PREFIX": "!",
   "OPERATOR": [
     "61559134070491"
   ],
   "ADMINBOT": [
-    "61559134070491"
+    "61559134070491",
+    "uid",
+    "uid"
   ],
   "OWNER": ["100075290587473"],
-  "APPROVED": ["61559134070491"],
-  "disabledcmds": ["61559134070491"],
-  "disabledevents": ["61559134070491"],
+  "APPROVED": [],
+  "disabledcmds": [],
+  "disabledevents": [],
   "note": "make sure that the bot name you entered is all lowercase"
 }
