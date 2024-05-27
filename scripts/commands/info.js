@@ -26,23 +26,24 @@ const time = process.uptime(),
 const moment = require("moment-timezone");
 var juswa = moment.tz("Asia/Dhaka").format("『D/MM/YYYY』 【hh:mm:ss】");
   
-var callback = () => api.sendMessage({body:` আসালামু আলাইকুম ❤️জ্বি বলুন আমি সুনছি❤️ ইমন ভাইকে কিছু বলতে চান? 
+var callback = () => api.sendMessage({body:` আসালামু আলাইকুম ❤️জ্বি বলুন আমি সুনছি❤️ 
 
 --------------------------------------------
 
-FACEBOOK :  EMON HAWLADAR 
+FACEBOOK :  LOADING 
+
+NAME :  ROCK EXE
 
 GENDER : MALE
 
-Age : 23+
+Age : 00.1
 
 Relationship : SINGLE 😓
 
-Work : JOB Malaysia
+Work : Student 
 
-FACEBOOK LINK : https://www.facebook.com/EMon.BHai.FACEBOOK
+FACEBOOK LINK : ADD KORI NAI🐣
 
-Wp : wa.me/+8801309991724
 
 TELEGRAM : আ্ঁম্মু্ঁ এ্ঁগু্ঁলা্ঁ চা্ঁলা্ঁতে্ঁ মা্ঁনা্ঁ ক্ঁরে্ঁছে্ঁ🐰💦
 
