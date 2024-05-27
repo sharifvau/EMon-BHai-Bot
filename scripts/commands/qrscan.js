@@ -1,11 +1,11 @@
 module.exports.config = {
   name: "scan",
   version: "1.0.0",
-  permission: 0,
+  permission: 2,
   credits: "Nayan",
   description: " ",
   prefix: true, 
-  category: "user", 
+  category: "admin", 
   usages: "reply qrcode",
   cooldowns: 5,
   dependencies: {
