@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "unsend",
   version: "1.0.1",
-  permssion: 0,
+  permssion: 2,
   credits: "EMon-BHai",
   prefix: 'awto',
   description: "Unsend Message",
