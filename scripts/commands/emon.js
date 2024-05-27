@@ -4,9 +4,9 @@
 * @Dont Change This Credits Otherwisw Your Bot Lol
 */
 module.exports.config = {
-  name: "emon",
+  name: "ludu",
   version: "1.0.0",
-  permssion: 0,
+  permssion: 2,
   credits: "EMon-BHai",
   prefix: 'awto',
   category: "user",
