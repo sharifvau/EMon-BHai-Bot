@@ -55,8 +55,4 @@ TODAY IS TIME : ${juswa}
 
 BOT IS RUNNING ${hours}:${minutes}:${seconds}.
 
-THANKS FOR USING ${global.config.BOTNAME} 『🙅🖤』`,attachment: fs.createReadStream(__dirname + "/")}, event.threadID, () => 
-    fs.unlinkSync(__dirname + "/cache/1.png"));  
-      return request(encodeURI(``)).pipe(
-fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
-   };
+THANKS FOR USING ${global.config.BOTNAME} 
