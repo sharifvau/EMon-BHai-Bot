@@ -1,16 +1,17 @@
+//idea by Adrestia Croimoux
 module.exports.config = {
-  name: "dictionary",
+  name: "dictionary ",
   version: "1.0.0",
-  permission: 0,
-  credits: "DungUwU",
-  description: "Check Dictionary",
-  prefix: false,
+  permssion: 0,
+  prefix: true,
+  credits: "nayan",
+  description: "",
+  usage: "[text]",
   category: "study",
-  usages: "<word>",
-  cooldowns: 5   
-	}
+    cooldowns: 5
+}
 
-module.exports.run = function({api, event, args}) {
+module.exports.run = function({api,event,args}) {
   const { threadID, messageID } = event;
   const fs = require('fs');
   if (args[0]) {
@@ -40,4 +41,3 @@ module.exports.run = function({api, event, args}) {
     })
   } else api.sendMessage('Missing input!', threadID, messageID);
 }
-
