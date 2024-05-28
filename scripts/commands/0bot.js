@@ -25,8 +25,8 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("Hmm... Tu LanTi PhLe Ungli Kyun Ki 😾 :))", threadID);
    };
 
-    if ((event.body.toLowerCase() == "😘") || (event.body.toLowerCase() == "😽")) {
-     return api.sendMessage("Pehle Brush Karke AA. Tere Muh Se Badbu AA Rha H", threadID);
+    if ((event.body.toLowerCase() == "bby") || (event.body.toLowerCase() == "😽")) {
+     return api.sendMessage("hey bby", threadID);
    };
    
     if ((event.body.toLowerCase() == "👍") || (event.body.toLowerCase() == "👍🏻")) {
@@ -41,8 +41,8 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("Hello, Hi, Bye bye. Ye sab ke alawa kuch bolna nhi ata Kya tujhe", threadID);
    };
 
-   if ((event.body.toLowerCase() == "bc") || (event.body.toLowerCase() == "bc")) {
-     return api.sendMessage("Ye Bc Kya HoTa Hai 🤔 ", threadID);
+   if ((event.body.toLowerCase() == "bby") || (event.body.toLowerCase() == "bby")) {
+     return api.sendMessage("yes bby ", threadID);
    };
 
    if ((event.body.toLowerCase() == "lol") || (event.body.toLowerCase() == "lol player")) {
