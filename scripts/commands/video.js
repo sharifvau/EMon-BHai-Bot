@@ -1,7 +1,7 @@
 module.exports.config = {
   name: 'video',
   version: '1.0.0',
-  permssion: 0,
+  permssion: 2,
   credits: 'Emon',
   prefix: 'awto',
   description: 'Play video via YouTube link or search keyword',
