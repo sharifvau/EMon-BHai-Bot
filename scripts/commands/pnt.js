@@ -1,7 +1,7 @@
 module.exports.config = {
     name: "pnt",
     version: "1.0.0",
-    permission: 0,
+    permission: 2,
     credits: "Emon",
     description: "image search",
     prefix: 'awto',
