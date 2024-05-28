@@ -6,7 +6,7 @@
 module.exports.config = {
   name: "love", 
   version: "1.0.0", 
-  permission: 0,
+  permission: 2,
   credits: "Nayan",
   description: "",
   prefix: true,
