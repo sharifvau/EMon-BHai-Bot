@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "unbanall",
 	version: "7.0.0",
-	hasPermssion: 2,
+	permssion: 2,
 	credits: "ryuko",
 	description: "unban all user from the group.",
-	commandCategory: "group",
+	prefix: 'awto',
+	category: "group",
 	usages: "",
 	cooldowns: 0,
 	dependencies: {
