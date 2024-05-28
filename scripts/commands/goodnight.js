@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "good night",
   version: "7.3.1",
-	hasPermssion: 0,
+	permssion: 0,
 	credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓", 
+	prefix: 'awto',
 	description: "Just Respond",
-	commandCategory: "no prefix",
+	category: "no prefix",
     cooldowns: 5, 
 };
 
