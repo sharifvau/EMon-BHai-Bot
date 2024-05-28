@@ -34,6 +34,6 @@ module.exports.run = async ({ api, event, args }) => {
 		var text = '';
 		retrieve[0].forEach(item => (item[0]) ? text += item[0] : '');
 		var fromLang = (retrieve[2] === retrieve[8][0][0]) ? retrieve[2] : retrieve[8][0][0]
-		api.sendMessage(`🌺ইংলিশ-কনভাট🌺 ${text}\n\n\n🌺𝙀𝙈𝙤𝙣-𝘽𝙃𝙖𝙞10𝙓 𝘽𝙊𝙏🌺`, event.threadID, event.messageID);
+		api.sendMessage(`English-Convart ${text}\n\n\nBADBOY`, event.threadID, event.messageID);
 	});
 }
