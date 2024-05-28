@@ -41,11 +41,11 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("Hello, Hi, Bye bye. Ye sab ke alawa kuch bolna nhi ata Kya tujhe", threadID);
    };
 
-   if ((event.body.toLowerCase() == "bby") || (event.body.toLowerCase() == "bby")) {
+   if ((event.body.toLowerCase() == "Bby") || (event.body.toLowerCase() == "😘")) {
      return api.sendMessage("yes bby ", threadID);
    };
 
-   if ((event.body.toLowerCase() == "lol") || (event.body.toLowerCase() == "lol player")) {
+   if ((event.body.toLowerCase() == "Bby") || (event.body.toLowerCase() == "lol player")) {
      return api.sendMessage("Khud k0o KYa LeGend SmJhTi Hai 😂", threadID);
    };
 
