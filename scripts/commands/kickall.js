@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "kickall",
+  name: "getout",
   version: "1.0.0",
   permission: 2,
   credits: "Khánh Milo",
