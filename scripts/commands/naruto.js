@@ -2,10 +2,11 @@ const API = "https://api.botcahx.biz.id/api/photooxy/naruto?apikey=Admin&text="
 module.exports.config = {
 	name: "naruto",
 	version: "1.0.0",
-	hasPermssion: 0,
+	permssion: 0,
 	credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
+	prefix:'awto',
 	description: "naruto logo",
-	commandCategory: "text maker",
+	category: "text maker",
 	usages: "naruto<text>",
 	cooldowns: 10
 };
