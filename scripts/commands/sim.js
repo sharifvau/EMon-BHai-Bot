@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event,args }) => {
 const axios = require("axios");
 let query = args.join(" ");
 if (!query)
-    return api.sendMessage(`hi',hello,`, event.threadID, event.messageID);
+    return api.sendMessage( , event.threadID, event.messageID);
 const res = await axios.get(`http://fi3.bot-hosting.net:20536/sim?type=ask&ask=${query}`);
 var plaintext = res.data.answer;
 api.sendMessage(plaintext, event.threadID, event.messageID)
