@@ -1,5 +1,5 @@
 /**
-* @author Mohammad Nayan
+* @author BAD BOY
 * @warn Do not edit code or edit credits
 */
 
