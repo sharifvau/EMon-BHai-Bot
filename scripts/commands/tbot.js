@@ -36,7 +36,7 @@ module.exports.handleEvent = async function ({ api: b, event: a }) {
 }
 module.exports.run = async function ({ api: b, event: a, args: c }) {
     const { threadID: d, messageID: e } = a, f = (c) => b.sendMessage(c, d, e);
-    if (0 == c.length) return f("You have not entered a message");
+    if (0 == c.length) return f("You","hello");
     switch (c[0]) {
         case "on":
             return global.simsimi.has(d) ? f("You have not turned off the sim.") : (global.simsimi.set(d, e), f("Successfully enabled sim."));
