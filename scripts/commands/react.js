@@ -7,7 +7,7 @@ module.exports.config = {
   prefix: true,
 	category: "admin",
 	usages: "[postID] <reaction type>: (unlike/like/love/heart/haha/wow/sad/angry)",
-	cooldowns: 5
+	cooldowns: 1
 };
 
 
