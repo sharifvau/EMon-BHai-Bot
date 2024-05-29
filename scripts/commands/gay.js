@@ -4,8 +4,8 @@ module.exports.config = {
 	permssion: 2,
 	credits: "SaikiDesu",
 	description: "gay image meme (for fun only)",
-	prefix:'true',
-	category: "edit-img",
+	prefix:'awto',
+  category: "edit-img",
 	usages: "[blank or tag]",
 	cooldowns: 5,
 	dependencies: {"fs-extra": "","discord.js": "","discord-image-generation" :"","node-superfetch": ""}
