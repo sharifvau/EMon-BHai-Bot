@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "poke",
     version: "1.0.0",
-    hasPermssion: 0,
+    permssion: 0,
     credits: "MrTomXxX",
     description: "View information of any 1 pokemon",
-    commandCategory: "Utilities",
+    prefix:'true',
+    category: "Utilities",
     usages: "[namePoke]",
     cooldowns: 5
 };
