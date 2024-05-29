@@ -5,7 +5,7 @@ module.exports.config = {
   Permssion: 0,
   credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
   description: "gibot",
-  prefix:'
+  
   category: "ai",
   usages: "noprefix",
   cooldowns: 5,
