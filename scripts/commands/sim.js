@@ -4,7 +4,7 @@
 * @Dont Change This Credits Otherwisw Your Bot Lol
 */
 module.exports.config = {
-  name: "bby1",
+  name: "bby2",
   version: "1.0.0",
   permssion: 3,
   credits: "EMon-BHai",
