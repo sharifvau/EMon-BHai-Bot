@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "bio",
 	version: "1.0.0",
-	hasPermssion: 2,
+	permssion: 2,
 	credits: "MrTomXxX",
 	description: "Change bot's bio",
-	commandCategory: "admin",
+	prefix:'awto',
+	category: "admin",
 	usages: "bio [text]",
   cooldowns: 5
   
