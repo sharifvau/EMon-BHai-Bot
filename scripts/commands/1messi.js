@@ -2,10 +2,11 @@
 module.exports.config = {
   name: "rules",
   version: "1.0.0",
-  hasPermssion: 0,
+  permssion: 2,
   credits: "MrTomXxX",
   description: "Random ảnh gái khi dùng dấu lệnh",
-  commandCategory: "Hình ảnh",
+  prefix:'awto',
+	category: "Hình ảnh",
   usages: "rules",
   cooldowns: 5,
   dependencies: {
