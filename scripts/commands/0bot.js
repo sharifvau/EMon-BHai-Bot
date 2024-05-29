@@ -2,7 +2,7 @@ const fs = global.nodemodule["fs-extra"];
 module.exports.config = {
   name: "gobot",
   version: "1.0.1",
-  permssion: 0,
+  pPermssion: 0,
   credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
   description: "gibot",
   prefix:'awto',
