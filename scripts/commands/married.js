@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "married",
     version: "3.1.1",
-    hasPermssion: 0,
+    permssion: 2,
     credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
     description: "married",
-    commandCategory: "img",
+    prefix:'awto',
+    category: "img",
     usages: "[@mention]",
     cooldowns: 5,
     dependencies: {
