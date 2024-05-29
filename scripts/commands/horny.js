@@ -1,10 +1,11 @@
 module.exports.config = {
-    name: "horny",
+    name: "horny1",
     version: "1.0.1",
-    hasPermssion: 0,
+    permssion: 0,
     credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
     description: "",
-    commandCategory: "image",
+    prefix:'awto',
+	category: "image",
     cooldowns: 0,
     usages: "/uid/reply/mention"
   
