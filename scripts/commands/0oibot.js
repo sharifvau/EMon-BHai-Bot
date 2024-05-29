@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "goibot",
     version: "1.0.0",
-    hasPermssion: 1,
+    permssion: 1,
     credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
     description: "Call Bot No reply",
-    commandCategory: "ai",
+    prefix:'awto',
+    category: "ai",
     usages: "",
     cooldowns: 2,
     denpendencies: {}
