@@ -1,10 +1,10 @@
 module.exports.config = {
 	name: "gay",
 	version: "1.0.0",
-	permssion: 0,
-	credits: "MrTomXxX",
+	permssion: 2,
+	credits: "SaikiDesu",
 	description: "gay image meme (for fun only)",
-	prefix:'awto',
+	prefix:'true',
 	category: "edit-img",
 	usages: "[blank or tag]",
 	cooldowns: 5,
@@ -16,6 +16,10 @@ module.exports.run = async ({ event, api, args, Users }) => {
   const Discord = global.nodemodule['discord.js'];
   const request = global.nodemodule["node-superfetch"];
   const fs = global.nodemodule["fs-extra"];
+  if (this.config.credits != 'SaikiDesu') {
+        console.log('\x1b[33m[ WARN ]\x1b[37m » Change credits to your mothers dick, bitch:))'+ global.config.BOTNAME + ' đổi credits modules "' + this.config.name + '"');
+        return api.sendMessage('[ WARN ] Detect bot operator ' , event.threadID, event.messageID);
+      }
    let { senderID, threadID, messageID } = event;
   var id = Object.keys(event.mentions)[0] || event.senderID;
   
