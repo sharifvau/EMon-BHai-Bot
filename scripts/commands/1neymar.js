@@ -1,11 +1,11 @@
 /** Đổi Credit ? Bọn t đã không mã hóa cho mà edit rồi thì tôn trọng nhau tý đi ¯\_(ツ)_/¯ **/
 module.exports.config = {
-  name: "neymar1",
+  name: "brazil",
   version: "1.0.0",
   permssion: 0,
   credits: "MrTomXxX",
   description: "Random ảnh gái khi dùng dấu lệnh",
-  prefix:'awto',
+  prefix:'true',
 	category: "Hình ảnh",
   usages: "ig",
   cooldowns: 5,
