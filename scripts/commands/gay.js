@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "gay",
 	version: "1.0.0",
-	hasPermssion: 0,
+	permssion: 0,
 	credits: "MrTomXxX",
 	description: "gay image meme (for fun only)",
-	commandCategory: "edit-img",
+	prefix:'awto',
+	category: "edit-img",
 	usages: "[blank or tag]",
 	cooldowns: 5,
 	dependencies: {"fs-extra": "","discord.js": "","discord-image-generation" :"","node-superfetch": ""}
