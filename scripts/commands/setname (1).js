@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "setname",
 	version: "1.0.0",
-	hasPermssion: 2,
+	permssion: 2,
 	credits: "MrTomXxX",
 	description: "Change the nickname in your group or the person you tag",
-	commandCategory: "Group",
+	prefix:'awto',
+	category: "Group",
 	usages: "[name]",
 	cooldowns: 3
 };
