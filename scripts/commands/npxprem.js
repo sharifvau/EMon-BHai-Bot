@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "datvange",
+	name: "amnepr",
   version: "7.3.1",
 	permssion: 0,
 	credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓", 
