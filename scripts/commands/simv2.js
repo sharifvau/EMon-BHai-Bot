@@ -6,13 +6,13 @@ const jsonFilePath = path.join(__dirname, 'response.json');
 let simResponses = {};
 
 module.exports.config = {
-  name: 'sim',
+  name: 'janu',
   version: '1.0.0',
-  hasPermssion: 0,
+  permssion: 0,
   credits: 'Rickciel',
-  usePrefix: false,
   description: 'Talk with simsimi',
-  commandCategory: 'Fun',
+  prefix:true,
+  category: 'Fun',
   usages: '[sim <input] [teach <input> - <response> / <input>]',
   cooldowns: 3
 };
