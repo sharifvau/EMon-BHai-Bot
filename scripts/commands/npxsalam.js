@@ -12,7 +12,7 @@ module.exports.config = {
 module.exports.handleEvent = async function({ api, event, client, Users, __GLOBAL }) {
 	var { threadID, messageID } = event;
 	var name = await Users.getNameUser(event.senderID);
-	if (event.body.indexOf("night")==0 || event.body.indexOf("Assalamualaikum")==0 || event.body.indexOf("Assalamualaikum")==0 || event.body.indexOf("asslamulaikum")==0 || event.body.indexOf("bby assalamualaikum")==0 || event.body.indexOf("bby Assalamualaikum")==0 || event.body.indexOf("Asslamulaikum")==0 || event.body.indexOf("asslamulaikum")==0 || event.body.indexOf("Asslamulaikum")==0 || event.body.indexOf("Assalamu alaikum")==0 || event.body.indexOf("আসসালামুআলাইকুম")==0 || event.body.indexOf("আসসালামু আলাইকুম")==0 ) { 
+	if (event.body.indexOf("night")==0 || event.body.indexOf("Assalamualaikum")==0 || event.body.indexOf("assalamualaikum")==0 || event.body.indexOf("asslamulaikum")==0 || event.body.indexOf("bby assalamualaikum")==0 || event.body.indexOf("Bby assalamualaikum")==0 || event.body.indexOf("Asslamulaikum")==0 || event.body.indexOf("asslamulaikum")==0 || event.body.indexOf("Asslamulaikum")==0 || event.body.indexOf("Assalamu alaikum")==0 || event.body.indexOf("আসসালামুআলাইকুম")==0 || event.body.indexOf("আসসালামু আলাইকুম")==0 ) { 
 		var msg = {
 				body: ` 𝘄𝗮𝗹𝗮𝗶𝗸𝘂𝗺 𝗮𝘀𝘀𝗹𝗮𝗺🐤🐤 `
 			}
