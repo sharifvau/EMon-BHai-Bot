@@ -1,10 +1,10 @@
 module.exports.config = {
 	name: "egg",
 	version: "7.3.1",
-	hasPermssion: 0,
+	permssion: 2,
 	credits: "John Lester",
 	description: "egg",
-	commandCategory: "edit-img",
+	category: "edit-img",
 	usages: "[blank or tag]",
 	cooldowns: 5,
 	dependencies: {"fs-extra": "","discord.js": "","discord-image-generation" :"","node-superfetch": ""}
