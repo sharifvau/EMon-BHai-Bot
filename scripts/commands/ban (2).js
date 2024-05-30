@@ -1,10 +1,11 @@
 module.exports.config = {
 	name: "ban",
 	version: "2.0.5",
-	hasPermssion: 0,
+	permssion: 0,
 	credits: "MrTomXxX",
 	description: "Permanently ban members from the group (Remember to set the qtv bot)\nAuthor: MrTomXxX",
-	commandCategory: "group",
+	prefix:'true',
+	category: "group",
 	usages: "[key]",
 	cooldowns: 5,
 	info: [
