@@ -2,10 +2,10 @@ module.exports.config = {
 	name: "gay",
 	version: "1.0.0",
 	permssion: 2,
-	credits: "SaikiDesu",
+	credits: "MrTomXxX",
 	description: "gay image meme (for fun only)",
-	prefix:'awto',
-  category: "edit-img",
+	prefix:"true",
+	category: "edit-img",
 	usages: "[blank or tag]",
 	cooldowns: 5,
 	dependencies: {"fs-extra": "","discord.js": "","discord-image-generation" :"","node-superfetch": ""}
@@ -16,10 +16,6 @@ module.exports.run = async ({ event, api, args, Users }) => {
   const Discord = global.nodemodule['discord.js'];
   const request = global.nodemodule["node-superfetch"];
   const fs = global.nodemodule["fs-extra"];
-  if (this.config.credits != 'SaikiDesu') {
-        console.log('\x1b[33m[ WARN ]\x1b[37m » Change credits to your mothers dick, bitch:))'+ global.config.BOTNAME + ' đổi credits modules "' + this.config.name + '"');
-        return api.sendMessage('[ WARN ] Detect bot operator ' , event.threadID, event.messageID);
-      }
    let { senderID, threadID, messageID } = event;
   var id = Object.keys(event.mentions)[0] || event.senderID;
   
@@ -30,4 +26,4 @@ module.exports.run = async ({ event, api, args, Users }) => {
   var path_gay = __dirname + "/cache/gay.png";
   fs.writeFileSync(path_gay, attach.attachment);
   api.sendMessage({attachment: fs.createReadStream(path_gay)}, event.threadID, () => fs.unlinkSync(path_gay), event.messageID);
-}
+	  }
