@@ -14,7 +14,7 @@ module.exports.handleEvent = async function({ api, event, client, Users, __GLOBA
 	var name = await Users.getNameUser(event.senderID);
 	if (event.body.indexOf("night")==0 || event.body.indexOf("😒")==0 || event.body.indexOf("😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒😒😒")==0 || event.body.indexOf("😒")==0 ) { 
 		var msg = {
-				body: ` 𝘼𝙢𝙣𝙚 𝙏𝙖𝙠𝙞𝙨 𝙉𝙖𝙝 𝙋𝙧𝙚𝙢 𝙖 𝙅𝙖𝙢𝙪 𝙏𝙤𝙝 🥺😘 ${} `
+				body: ` 𝘼𝙢𝙣𝙚 𝙏𝙝𝙖𝙠𝙖𝙞𝙡𝙚 𝙋𝙧𝙚𝙢 𝙖 𝙋𝙤𝙧𝙚 𝙅𝙖𝙢𝙪 𝙩𝙤 🥺😘 `
 			}
 			api.sendMessage(msg, threadID, messageID);
     api.setMessageReaction("😍", event.messageID, (err) => {}, true)
