@@ -5,12 +5,12 @@ const axios = require('axios');
 const convertHMS = (value) => new Date(value * 1000).toISOString().slice(11, 19);
 
 const config = {
-     name: "sing",
+     name: "ytm",
      version: "1.0.0",
      permssion: 0,
      credits: "Mirai Team & Yan Maglinte",
      description: "Play music via YouTube link or search keyword",
-     prefix: true,
+     prefix: "true",
      category: "Means",
      usages: "[searchMusic]",
      cooldowns: 0
