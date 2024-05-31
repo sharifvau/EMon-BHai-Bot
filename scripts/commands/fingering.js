@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "fingering",
+    name: "fingeringv2",
     version: "7.3.1",
     permssion: 2,
     credits: "MrTomXxX",
