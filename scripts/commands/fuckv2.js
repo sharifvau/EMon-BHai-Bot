@@ -1,10 +1,11 @@
 module.exports.config = {
-    name: "fuckv3",
+    name: "fuckv2",
     version: "3.1.1",
-    hasPermssion: 2,
+    permssion: 2,
     credits: "MrTomXxX",
     description: "Get fuck",
-    commandCategory: "nsfw",
+    prefix:"true",
+    category: "nsfw",
     usages: "[@mention]",
     cooldowns: 5,
     dependencies: {
