@@ -1,90 +1,411 @@
-module.exports.config = {
-	name: "help",
-	version: "1.0.2",
-	permssion: 0,
-	credits: "MrTomXxX",
-	description: "Beginner's Guide",
-	prefix:'true',
-	category: "system",
-	usages: "[Tên module]",
-	cooldowns: 5,
-	envConfig: {
-		autoUnsend: false,
-		delayUnsend: 0
-	}
-};
+const fs = require("fs-extra");
+const axios = require("axios");
+const path = require("path");
+const { getPrefix } = global.utils;
+const { commands, aliases } = global.GoatBot;
+const doNotDelete = "[ 🐐 | Goat Bot V2 ]";
+/**
+* @author NTKhang
+* @author: do not delete it
+* @message if you delete or edit it you will get a global ban
+*/
 
-module.exports.languages = {
-	"vi": {
-		"moduleInfo": "「 %1 」\n%2\n\n❯ Cách sử dụng: %3\n❯ Thuộc nhóm: %4\n❯ Thời gian chờ: %5 giây(s)\n❯ Quyền hạn: %6\n\n» Module code by %7 «",
-		"helpList": '[ Hiện tại đang có %1 lệnh có thể sử dụng trên bot này, Sử dụng: "%2help nameCommand" để xem chi tiết cách sử dụng! ]"',
-		"user": "Người dùng",
-        "adminGroup": "Quản trị viên nhóm",
-        "adminBot": "Quản trị viên bot"
+module.exports = {
+	config: {
+		name: "help",
+		version: "1.21",
+		permission: 0,
+		credits:"ntkhang",
+		prefix:"true",
+		cooldowns:"5",
+		usages:'system',
+		description: {
+			vi: "Xem cách sử dụng của các lệnh",
+			en: "View command usage"
+		},
+		category: "info",
+		guide: {
+			vi: "   {pn} [để trống | <số trang> | <tên lệnh>]"
+				+ "\n   {pn} <command name> [-u | usage | -g | guide]: chỉ hiển thị phần hướng dẫn sử dụng lệnh"
+				+ "\n   {pn} <command name> [-i | info]: chỉ hiển thị phần thông tin về lệnh"
+				+ "\n   {pn} <command name> [-r | role]: chỉ hiển thị phần quyền hạn của lệnh"
+				+ "\n   {pn} <command name> [-a | alias]: chỉ hiển thị phần tên viết tắt của lệnh",
+			en: "{pn} [empty | <page number> | <command name>]"
+				+ "\n   {pn} <command name> [-u | usage | -g | guide]: only show command usage"
+				+ "\n   {pn} <command name> [-i | info]: only show command info"
+				+ "\n   {pn} <command name> [-r | role]: only show command role"
+				+ "\n   {pn} <command name> [-a | alias]: only show command alias"
+		},
+		priority: 1
 	},
-	"en": {
-		"moduleInfo": "「 %1 」\n%2\n\n❯ Usage: %3\n❯ Category: %4\n❯ Waiting time: %5 seconds(s)\n❯ Permission: %6\n\n» Module code by %7 «",
-		"helpList": '[ There are %1 commands on this bot, Use: "%2help nameCommand" to know how to use! ]',
-		"user": "User",
-        "adminGroup": "Admin group",
-        "adminBot": "Admin bot"
+
+	langs: {
+		vi: {
+			help: "╭─────────────⭓"
+				+ "\n%1"
+				+ "\n├─────⭔"
+				+ "\n│ Trang [ %2/%3 ]"
+				+ "\n│ Hiện tại bot có %4 lệnh có thể sử dụng"
+				+ "\n│ » Gõ %5help <số trang> để xem danh sách các lệnh"
+				+ "\n│ » Gõ %5help để xem chi tiết cách sử dụng lệnh đó"
+				+ "\n├────────⭔"
+				+ "\n│ %6"
+				+ "\n╰─────────────⭓",
+			help2: "%1├───────⭔"
+				+ "\n│ » Hiện tại bot có %2 lệnh có thể sử dụng"
+				+ "\n│ » Gõ %3help <tên lệnh> để xem chi tiết cách sử dụng lệnh đó"
+				+ "\n│ %4"
+				+ "\n╰─────────────⭓",
+			commandNotFound: "Lệnh \"%1\" không tồn tại",
+			getInfoCommand: "╭── NAME ────⭓"
+				+ "\n│ %1"
+				+ "\n├── INFO"
+				+ "\n│ Mô tả: %2"
+				+ "\n│ Các tên gọi khác: %3"
+				+ "\n│ Các tên gọi khác trong nhóm bạn: %4"
+				+ "\n│ Version: %5"
+				+ "\n│ Role: %6"
+				+ "\n│ Thời gian mỗi lần dùng lệnh: %7s"
+				+ "\n│ Author: %8"
+				+ "\n├── USAGE"
+				+ "\n│%9"
+				+ "\n├── NOTES"
+				+ "\n│ Nội dung bên trong <XXXXX> là có thể thay đổi"
+				+ "\n│ Nội dung bên trong [a|b|c] là a hoặc b hoặc c"
+				+ "\n╰──────⭔",
+			onlyInfo: "╭── INFO ────⭓"
+				+ "\n│ Tên lệnh: %1"
+				+ "\n│ Mô tả: %2"
+				+ "\n│ Các tên gọi khác: %3"
+				+ "\n│ Các tên gọi khác trong nhóm bạn: %4"
+				+ "\n│ Version: %5"
+				+ "\n│ Role: %6"
+				+ "\n│ Thời gian mỗi lần dùng lệnh: %7s"
+				+ "\n│ Author: %8"
+				+ "\n╰─────────────⭓",
+			onlyUsage: "╭── USAGE ────⭓"
+				+ "\n│%1"
+				+ "\n╰─────────────⭓",
+			onlyAlias: "╭── ALIAS ────⭓"
+				+ "\n│ Các tên gọi khác: %1"
+				+ "\n│ Các tên gọi khác trong nhóm bạn: %2"
+				+ "\n╰─────────────⭓",
+			onlyRole: "╭── ROLE ────⭓"
+				+ "\n│%1"
+				+ "\n╰─────────────⭓",
+			doNotHave: "Không có",
+			roleText0: "0 (Tất cả người dùng)",
+			roleText1: "1 (Quản trị viên nhóm)",
+			roleText2: "2 (Admin bot)",
+			roleText0setRole: "0 (set role, tất cả người dùng)",
+			roleText1setRole: "1 (set role, quản trị viên nhóm)",
+			pageNotFound: "Trang %1 không tồn tại"
+		},
+		en: {
+			help: "╭─────────────⭓"
+				+ "\n%1"
+				+ "\n├─────⭔"
+				+ "\n│ Page [ %2/%3 ]"
+				+ "\n│ Currently, the bot has %4 commands that can be used"
+				+ "\n│ » Type %5help <page> to view the command list"
+				+ "\n│ » Type %5help to view the details of how to use that command"
+				+ "\n├────────⭔"
+				+ "\n│ %6"
+				+ "\n╰─────────────⭓",
+			help2: "%1├───────⭔"
+				+ "\n│ » Currently, the bot has %2 commands that can be used"
+				+ "\n│ » Type %3help <command name> to view the details of how to use that command"
+				+ "\n│ %4"
+				+ "\n╰─────────────⭓",
+			commandNotFound: "Command \"%1\" does not exist",
+			getInfoCommand: "╭── NAME ────⭓"
+				+ "\n│ %1"
+				+ "\n├── INFO"
+				+ "\n│ Description: %2"
+				+ "\n│ Other names: %3"
+				+ "\n│ Other names in your group: %4"
+				+ "\n│ Version: %5"
+				+ "\n│ Role: %6"
+				+ "\n│ Time per command: %7s"
+				+ "\n│ Author: %8"
+				+ "\n├── USAGE"
+				+ "\n│%9"
+				+ "\n├── NOTES"
+				+ "\n│ The content inside <XXXXX> can be changed"
+				+ "\n│ The content inside [a|b|c] is a or b or c"
+				+ "\n╰──────⭔",
+			onlyInfo: "╭── INFO ────⭓"
+				+ "\n│ Command name: %1"
+				+ "\n│ Description: %2"
+				+ "\n│ Other names: %3"
+				+ "\n│ Other names in your group: %4"
+				+ "\n│ Version: %5"
+				+ "\n│ Role: %6"
+				+ "\n│ Time per command: %7s"
+				+ "\n│ Author: %8"
+				+ "\n╰─────────────⭓",
+			onlyUsage: "╭── USAGE ────⭓"
+				+ "\n│%1"
+				+ "\n╰─────────────⭓",
+			onlyAlias: "╭── ALIAS ────⭓"
+				+ "\n│ Other names: %1"
+				+ "\n│ Other names in your group: %2"
+				+ "\n╰─────────────⭓",
+			onlyRole: "╭── ROLE ────⭓"
+				+ "\n│%1"
+				+ "\n╰─────────────⭓",
+			doNotHave: "Do not have",
+			roleText0: "0 (All users)",
+			roleText1: "1 (Group administrators)",
+			roleText2: "2 (Admin bot)",
+			roleText0setRole: "0 (set role, all users)",
+			roleText1setRole: "1 (set role, group administrators)",
+			pageNotFound: "Page %1 does not exist"
+		}
+	},
+
+	onStart: async function ({ message, args, event, threadsData, getLang, role, globalData }) {
+		const langCode = await threadsData.get(event.threadID, "data.lang") || global.GoatBot.config.language;
+		let customLang = {};
+		const pathCustomLang = path.normalize(`${process.cwd()}/languages/cmds/${langCode}.js`);
+		if (fs.existsSync(pathCustomLang))
+			customLang = require(pathCustomLang);
+
+		const { threadID } = event;
+		const threadData = await threadsData.get(threadID);
+		const prefix = getPrefix(threadID);
+		let sortHelp = threadData.settings.sortHelp || "name";
+		if (!["category", "name"].includes(sortHelp))
+			sortHelp = "name";
+		const commandName = (args[0] || "").toLowerCase();
+		let command = commands.get(commandName) || commands.get(aliases.get(commandName));
+		const aliasesData = threadData.data.aliases || {
+			// uid: ["userid", "id"]
+		};
+		if (!command) {
+			for (const cmdName in aliasesData) {
+				if (aliasesData[cmdName].includes(commandName)) {
+					command = commands.get(cmdName);
+					break;
+				}
+			}
+		}
+
+		if (!command) {
+			const globalAliasesData = await globalData.get('setalias', 'data', []);
+			// [{
+			// 	commandName: "uid",
+			// 	aliases: ["uid", "id]
+			// }]
+			for (const item of globalAliasesData) {
+				if (item.aliases.includes(commandName)) {
+					command = commands.get(item.commandName);
+					break;
+				}
+			}
+		}
+
+		// ———————————————— LIST ALL COMMAND ——————————————— //
+		if (!command && !args[0] || !isNaN(args[0])) {
+			const arrayInfo = [];
+			let msg = "";
+			if (sortHelp == "name") {
+				const page = parseInt(args[0]) || 1;
+				const numberOfOnePage = 30;
+				for (const [name, value] of commands) {
+					if (value.config.role > 1 && role < value.config.role)
+						continue;
+					let describe = name;
+					let description;
+					const descriptionCustomLang = customLang[name]?.description;
+					if (descriptionCustomLang != undefined)
+						description = checkLangObject(descriptionCustomLang, langCode);
+					else if (value.config.description)
+						description = checkLangObject(value.config.description, langCode);
+					if (description)
+						describe += `: ${cropContent(description.charAt(0).toUpperCase() + description.slice(1), 50)}`;
+					arrayInfo.push({
+						data: describe,
+						priority: value.priority || 0
+					});
+				}
+
+				arrayInfo.sort((a, b) => a.data - b.data); // sort by name
+				arrayInfo.sort((a, b) => a.priority > b.priority ? -1 : 1); // sort by priority
+				const { allPage, totalPage } = global.utils.splitPage(arrayInfo, numberOfOnePage);
+				if (page < 1 || page > totalPage)
+					return message.reply(getLang("pageNotFound", page));
+
+				const returnArray = allPage[page - 1] || [];
+				const startNumber = (page - 1) * numberOfOnePage + 1;
+				msg += (returnArray || []).reduce((text, item, index) => text += `│ ${index + startNumber}${index + startNumber < 10 ? " " : ""}. ${item.data}\n`, '').slice(0, -1);
+				await message.reply(getLang("help", msg, page, totalPage, commands.size, prefix, doNotDelete));
+			}
+			else if (sortHelp == "category") {
+				for (const [, value] of commands) {
+					if (value.config.role > 1 && role < value.config.role)
+						continue; // if role of command > role of user => skip
+					const indexCategory = arrayInfo.findIndex(item => (item.category || "NO CATEGORY") == (value.config.category?.toLowerCase() || "NO CATEGORY"));
+
+					if (indexCategory != -1)
+						arrayInfo[indexCategory].names.push(value.config.name);
+					else
+						arrayInfo.push({
+							category: value.config.category.toLowerCase(),
+							names: [value.config.name]
+						});
+				}
+				arrayInfo.sort((a, b) => (a.category < b.category ? -1 : 1));
+				arrayInfo.forEach((data, index) => {
+					const categoryUpcase = `${index == 0 ? `╭` : `├`}─── ${data.category.toUpperCase()} ${index == 0 ? "⭓" : "⭔"}`;
+					data.names = data.names.sort().map(item => item = `│ ${item}`);
+					msg += `${categoryUpcase}\n${data.names.join("\n")}\n`;
+				});
+				message.reply(getLang("help2", msg, commands.size, prefix, doNotDelete));
+			}
+		}
+		// ———————————— COMMAND DOES NOT EXIST ———————————— //
+		else if (!command && args[0]) {
+			return message.reply(getLang("commandNotFound", args[0]));
+		}
+		// ————————————————— INFO COMMAND ————————————————— //
+		else {
+			const formSendMessage = {};
+			const configCommand = command.config;
+
+			let guide = configCommand.guide?.[langCode] || configCommand.guide?.["en"];
+			if (guide == undefined)
+				guide = customLang[configCommand.name]?.guide?.[langCode] || customLang[configCommand.name]?.guide?.["en"];
+
+			guide = guide || {
+				body: ""
+			};
+			if (typeof guide == "string")
+				guide = { body: guide };
+			const guideBody = guide.body
+				.replace(/\{prefix\}|\{p\}/g, prefix)
+				.replace(/\{name\}|\{n\}/g, configCommand.name)
+				.replace(/\{pn\}/g, prefix + configCommand.name);
+
+			const aliasesString = configCommand.aliases ? configCommand.aliases.join(", ") : getLang("doNotHave");
+			const aliasesThisGroup = threadData.data.aliases ? (threadData.data.aliases[configCommand.name] || []).join(", ") : getLang("doNotHave");
+
+			let roleOfCommand = configCommand.role;
+			let roleIsSet = false;
+			if (threadData.data.setRole?.[configCommand.name]) {
+				roleOfCommand = threadData.data.setRole[configCommand.name];
+				roleIsSet = true;
+			}
+
+			const roleText = roleOfCommand == 0 ?
+				(roleIsSet ? getLang("roleText0setRole") : getLang("roleText0")) :
+				roleOfCommand == 1 ?
+					(roleIsSet ? getLang("roleText1setRole") : getLang("roleText1")) :
+					getLang("roleText2");
+
+			const author = configCommand.author;
+			const descriptionCustomLang = customLang[configCommand.name]?.description;
+			let description = checkLangObject(configCommand.description, langCode);
+			if (description == undefined)
+				if (descriptionCustomLang != undefined)
+					description = checkLangObject(descriptionCustomLang, langCode);
+				else
+					description = getLang("doNotHave");
+
+			let sendWithAttachment = false; // check subcommand need send with attachment or not
+
+			if (args[1]?.match(/^-g|guide|-u|usage$/)) {
+				formSendMessage.body = getLang("onlyUsage", guideBody.split("\n").join("\n│"));
+				sendWithAttachment = true;
+			}
+			else if (args[1]?.match(/^-a|alias|aliase|aliases$/))
+				formSendMessage.body = getLang("onlyAlias", aliasesString, aliasesThisGroup);
+			else if (args[1]?.match(/^-r|role$/))
+				formSendMessage.body = getLang("onlyRole", roleText);
+			else if (args[1]?.match(/^-i|info$/))
+				formSendMessage.body = getLang(
+					"onlyInfo",
+					configCommand.name,
+					description,
+					aliasesString,
+					aliasesThisGroup,
+					configCommand.version,
+					roleText,
+					configCommand.countDown || 1,
+					author || ""
+				);
+			else {
+				formSendMessage.body = getLang(
+					"getInfoCommand",
+					configCommand.name,
+					description,
+					aliasesString,
+					aliasesThisGroup,
+					configCommand.version,
+					roleText,
+					configCommand.countDown || 1,
+					author || "",
+					guideBody.split("\n").join("\n│")
+				);
+				sendWithAttachment = true;
+			}
+
+			if (sendWithAttachment && guide.attachment) {
+				if (typeof guide.attachment == "object" && !Array.isArray(guide.attachment)) {
+					const promises = [];
+					formSendMessage.attachment = [];
+
+					for (const keyPathFile in guide.attachment) {
+						const pathFile = path.normalize(keyPathFile);
+
+						if (!fs.existsSync(pathFile)) {
+							const cutDirPath = path.dirname(pathFile).split(path.sep);
+							for (let i = 0; i < cutDirPath.length; i++) {
+								const pathCheck = `${cutDirPath.slice(0, i + 1).join(path.sep)}${path.sep}`; // create path
+								if (!fs.existsSync(pathCheck))
+									fs.mkdirSync(pathCheck); // create folder
+							}
+							const getFilePromise = axios.get(guide.attachment[keyPathFile], { responseType: 'arraybuffer' })
+								.then(response => {
+									fs.writeFileSync(pathFile, Buffer.from(response.data));
+								});
+
+							promises.push({
+								pathFile,
+								getFilePromise
+							});
+						}
+						else {
+							promises.push({
+								pathFile,
+								getFilePromise: Promise.resolve()
+							});
+						}
+					}
+
+					await Promise.all(promises.map(item => item.getFilePromise));
+					for (const item of promises)
+						formSendMessage.attachment.push(fs.createReadStream(item.pathFile));
+				}
+			}
+
+			return message.reply(formSendMessage);
+		}
 	}
 };
 
-module.exports.handleEvent = function ({ api, event, getText }) {
-	const { commands } = global.client;
-	const { threadID, messageID, body } = event;
-
-	if (!body || typeof body == "undefined" || body.indexOf("help") != 0) return;
-	const splitBody = body.slice(body.indexOf("help")).trim().split(/\s+/);
-	if (splitBody.length == 1 || !commands.has(splitBody[1].toLowerCase())) return;
-	const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
-	const command = commands.get(splitBody[1].toLowerCase());
-	const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
-	return api.sendMessage(getText("moduleInfo", command.config.name, command.config.description, `${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : ""}`, command.config.commandCategory, command.config.cooldowns, ((command.config.hasPermssion == 0) ? getText("user") : (command.config.hasPermssion == 1) ? getText("adminGroup") : getText("adminBot")), command.config.credits), threadID, messageID);
+function checkLangObject(data, langCode) {
+	if (typeof data == "string")
+		return data;
+	if (typeof data == "object" && !Array.isArray(data))
+		return data[langCode] || data.en || undefined;
+	return undefined;
 }
 
-module.exports. run = function({ api, event, args, getText }) {
-	const { commands } = global.client;
-	const { threadID, messageID } = event;
-	const command = commands.get((args[0] || "").toLowerCase());
-	const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
-	const { autoUnsend, delayUnsend } = global.configModule[this.config.name];
-	const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
-
-	if (!command) {
-		const arrayInfo = [];
-		const page = parseInt(args[0]) || 1;
-    const numberOfOnePage = 8;
-    let i = 0;
-    let msg = "command list\n\n";
-    
-    for (var [name, value] of (commands)) {
-      name += 
-      arrayInfo.push(name);
-    }
-
-    arrayInfo.sort((a, b) => a.data - b.data);
-    
-    const startSlice = numberOfOnePage*page - numberOfOnePage;
-    i = startSlice;
-    const returnArray = arrayInfo.slice(startSlice, startSlice + numberOfOnePage);
-    
-    for (let item of returnArray) msg += `${++i}. ${global.config.PREFIX}${item}\n`; 
-    
-    const randomText = [ "Even a small amount of alcohol poured on a scorpion will drive it crazy and sting itself to death."," The crocodile can't stick its tongue out.","The oldest known animal in the world is a 405-year-old male, discovered in 2007.","Sharks, like other fish, have their reproductive organs located in the ribcage.","The eyes of the octopus have no blind spots. On average, the brain of an octopus has 300 million neurons. When under extreme stress, some octopuses even eat their trunks.","An elephant's brain weighs about 6,000g, while a cat's brain weighs only approximately 30g.","Cats and dogs have the ability to hear ultrasound.","Sheep can survive up to 2 weeks in a state of being buried in snow.","The smartest pig in the world is owned by a math teacher in Madison, Wisconsin (USA). It has the ability to memorize worksheets multiplying to 12.","Statistics show that each rattlesnake's mating lasts up to ... more than 22 hours", "Studies have found that flies are deaf.","In a lack of water, kangaroos can endure longer than camels.","","Dogs have 4 toes on their hind legs and 5 toes on each of their front paws.","The average flight speed of honey bees is 24km/h. They never sleep.","Cockroaches can live up to 9 days after having their heads cut off.","If you leave a goldfish in the dark for a long time, it will eventually turn white.","The flying record for a chicken is 13 seconds.","The mosquito that causes the most deaths to humans worldwide is the mosquito.","TThe quack of a duck doesn't resonate, and no one knows why.","Sea pond has no brain. They are also among the few animals that can turn their stomachs inside out.","Termites are active 24 hours a day and they do not sleep. Studies have also found that termites gnaw wood twice as fast when listening to heavy rock music.","Baby giraffes usually fall from a height of 1.8 meters when they are born.", "A tiger not only has a striped coat, but their skin is also streaked with stripes.."," Vultures fly without flapping their wings.","Turkeys can reproduce without mating.","Penguins are the only birds that can swim, but not fly. Nor have any penguins been found in the Arctic."," The venom of the king cobra is so toxic that just one gram can kill 150 people.","The venom of a small scorpion is much more dangerous than the venom of a large scorpion.","The length of an oyster's penis can be so 'monstrous' that it is 20 times its body size!","Rat's heart beats 650 times per minute.","The flea can jump 350 times its body length. If it also possessed that ability, a human would be able to jump the length of a football field once.","The faster the kangaroo jumps, the less energy it consumes.","Elephants are among the few mammals that can't jump! It was also discovered that elephants still stand after death.","Spiders have transparent blood."," Snails breathe with their feet.","Some lions mate more than 50 times a day.","Chuột reproduce so quickly that in just 18 months, from just 2 mice, the mother can give birth to 1 million heirs.","Hedgehog floats on water.","Alex is the world's first African gray parrot to question its own existence: What color am I?.","The reason why flamingos are pink-red in color is because they can absorb pigments from the shells of shrimp and shrimp that they eat every day."," Owls and pigeons can memorize human faces", "Cows are more dangerous than sharks","The single pair of wings on the back and the rear stabilizer help the flies to fly continuously, but their lifespan is not more than 14 days.","With a pair of endlessly long legs that can be up to 1.5 m high and weigh 20-25 kg, the ostrich can run faster than a horse. In addition, male ostriches can roar like a lion.","Kangaroos use their tails for balance, so if you lift a Kangaroo's tail off the ground, it won't be able to jump and stand.","Tigers not only have stripes on their backs but also printed on their skin. Each individual tiger is born with its own unique stripe.","If you are being attacked by a crocodile, do not try to get rid of their sharp teeth by pushing them away. Just poke the crocodile in the eye, that's their weakness.","Fleas can jump up to 200 times their height. This is equivalent to a man jumping on the Empire State Building in New York.","A cat has up to 32 muscles in the ear. That makes them have superior hearing ability","Koalas have a taste that does not change throughout life, they eat almost nothing but .. leaves of the eucalyptus tree.","The beaver's teeth do not stop growing throughout its life. If you do not want the teeth to be too long and difficult to control, the beaver must eat hard foods to wear them down.","Animals living in coastal cliffs or estuaries have extremely weird abilities. Oysters can change sex to match the mating method.","Butterflies have eyes with thousands of lenses similar to those on cameras, but they can only see red, green, and yellow..","Don't try this at home, the truth is that if a snail loses an eye, it can recover.","Giraffes do not have vocal cords like other animals of the same family, their tongues are blue-black.","Dog nose prints are like human fingerprints and can be used to identify different dogs.","alam nyo ba na ang pogi ni ken yung owner ng bot laki pa ng tite",];
-    
-    const text = `{page (${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)}) help 1 help 2}\n༻𝐎𝐖𝐍𝐄𝐑:- ☞BAD BOY☜ ༺\n༒𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 BAD BOY〠.༒\n༒𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝༒:- ☞  ☜ \n༻𝘠𝘰𝘶𝘵𝘶𝘣𝘦 𝘭𝘪𝘯𝘬༺:- ☞  ☜\n֎𝘍𝘰𝘳 𝘈𝘯𝘺 𝘒𝘪𝘯𝘥 𝘖𝘧 𝘏𝘦𝘭𝘱 𝘫𝘰𝘪𝘯 𝘞𝘱 𝘎𝘳𝘰𝘶𝘱֍:-☞ `;  
-
-return api.sendMessage(msg + "\n" + text, threadID, async (error, info) => {
-			if (autoUnsend) {
-				await new Promise(resolve => setTimeout(resolve, delayUnsend * 10000));
-				return api.unsendMessage(info.messageID);
-			} else return;
-		});
+function cropContent(content, max) {
+	if (content.length > max) {
+		content = content.slice(0, max - 3);
+		content = content + "...";
 	}
-
-	return
-
-api.sendMessage(getText("moduleInfo", command.config.name, command.config.description, `${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : ""}`, command.config.commandCategory, command.config.cooldowns, ((command.config.hasPermssion == 0) ? getText("user") : (command.config.hasPermssion == 1) ? getText("adminGroup") : getText("adminBot")), command.config.credits), threadID, messageID);
-};
+	return content;
+				}
