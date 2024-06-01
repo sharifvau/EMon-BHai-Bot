@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "adminonly",
     version: "1.0",
-    hasPermssion: 1,
+    permssion: 1,
     credits: "D-Jukie fix Kadeer",
     description: "Admin only",
-    commandCategory: "Admin",
+    prefix:"true",
+    category: "Admin",
     usages: "qtvonly",
     cooldowns: 5,
     dependencies: {
