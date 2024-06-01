@@ -1,10 +1,11 @@
 module.exports.config = {
   name: "remini",
   version: "0.0.1",
-  hasPermssion: 0,
+  permssion: 2,
   credits: "Abdulla Rahaman",
   description: "( 𝙀𝙣𝙝𝙖𝙣𝙘𝙚 𝙄𝙢𝙖𝙜𝙚𝙨 )",
-  commandCategory: "enhance",
+  category: "enhance",
+  prefix:"true",
   usages: "( Enchance Photos )",
   cooldowns: 3
 };
