@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "animvid",
     version: "1.0.1",
-    hasPermssion: 0,
+    permssion: 0,
     credits: "Joshua Sy",
     description: "",
-    commandCategory: "video",
+    prefix:"true",
+	category: "video",
     cooldowns: 0,
     dependencies: {
         "fs-extra": "",
