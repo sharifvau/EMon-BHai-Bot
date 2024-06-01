@@ -1,7 +1,7 @@
 module.exports.config = {
     name: "goibot",
     version: "1.0.0",
-    permssion: 2,
+    permssion: 1,
     credits: "𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓",
     description: "Call Bot No reply",
     prefix:'true',
