@@ -4,6 +4,7 @@ module.exports.config = {
 	permssion: 0,
 	credits: "Joshua Sy", //don't change the credits please
 	description: "Admin and Bot info.",
+	prefix:"true",
 	category: "...",
 	cooldowns: 1,
 	dependencies: 
