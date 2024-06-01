@@ -4,14 +4,14 @@
 * @Dont Change This Credits Otherwisw Your Bot Lol
 */
 module.exports.config = {
-  name: "cat",
+  name: "dog",
   version: "1.0.0",
-  hasPermssion: 0,
+  permssion: 0,
   credits: "EMon-BHai",
-  usePrefix: false,
+  prefix: false,
   description: "Dont Change This Credits Otherwisw Your Bot Lol",
   usages: "[ask]",
-  commandCategory: "SIM ✅",
+  category: "SIM ✅",
   cooldowns: 2
 };
 
