@@ -5,11 +5,11 @@ const fs = require("fs");
 module.exports.config = {
   name: "teach",
   version: "1.0.0",
-  permssion: 0,
+  permssion: 2,
   credits: "Abdulla Tech 49",
-  usePrefix: false,
+  prefix: false,
   description: "Teach AI",
-  commandCategory: " SIM ✅",
+  category: " SIM ✅",
     cooldowns: 2,
 };
 
