@@ -1,10 +1,11 @@
 module.exports.config = {
-	name: "anh",
+	name: "funny",
 	version: "1.0.3",
-	hasPermssion: 3,
+	permssion: 3,
 	credits: "MrTomXxX",
 	description: "View reply photos",
-	commandCategory: "What does it do?",
+	prefix:"true",
+	category: "What does it do?",
 	cooldowns: 5,
 	dependencies: {
 		axios: ""
