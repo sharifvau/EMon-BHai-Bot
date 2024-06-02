@@ -1,10 +1,11 @@
 module.exports.config = {
-	name: "rankv2",
+	name: "rank",
 	version: "2.0.0",
-	hasPermssion: 0,
+	permssion: 0,
 	credits: "MrTomXxX",
 	description: "View Member Rankings",
-	commandCategory: "Group",
+	prefix:"true",
+	category: "Group",
 	usages: " [user] or [tag]",
 	cooldowns: 5,
 	dependencies: {
