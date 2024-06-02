@@ -1,10 +1,11 @@
 module.exports.config = {
-  name: "gai2",
+  name: "girl1",
   version: "1.0.0",
-  hasPermssion: 2,
+  permssion: 2,
   credits: "MrTomXxX",
   description: "Random image girl",
-  commandCategory: "random-img",
+  prefix:"true",
+  category: "random-img",
   usages: "gái",
   cooldowns: 5,
   dependencies: {
