@@ -1,11 +1,12 @@
 const fs = global.nodemodule["fs-extra"];
 module.exports.config = {
-  name: "tumi",
+  name: "tul",
   version: "1.0.1",
-  hasPermssion: 0,
+  permssion: 0,
   credits: "MrTomXxX",
   description: "goibot",
-  commandCategory: "Noprefix",
+  prefix:"awto",
+  category: "Noprefix",
   usages: "noprefix",
   cooldowns: 5,
 };
