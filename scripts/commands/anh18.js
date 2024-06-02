@@ -1,10 +1,11 @@
  module.exports.config = {
-  name: "anh18",
+  name: "nude3",
   version: "1.0.0",
-  hasPermssion: 3,
+  permssion: 2,
   credits: "MrTomXxX",
   description: "",
-  commandCategory: "nsfw",
+  prefix:"true",
+  category: "nsfw",
   usages: "anh18",
   cooldowns: 5,
   dependencies: {
