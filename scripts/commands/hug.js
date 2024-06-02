@@ -1,10 +1,11 @@
 module.exports.config = {
     name: "hug",
     version: "3.1.1",
-    hasPermssion: 0,
+    permssion: 2,
     credits: "MrTomXxX",
     description: "Hug 🥰",
-    commandCategory: "img",
+    prefix:"true",
+    category: "img",
     usages: "[@mention]",
     cooldowns: 5,
     dependencies: {
