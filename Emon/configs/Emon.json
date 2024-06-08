@@ -1,4 +1,8 @@
 {
+  "login": {
+    "email": "email",
+    "password": "password"
+  },
   "loginoptions": {
     "selfListen": false,
     "selfListenEvent": false,
@@ -18,7 +22,7 @@
   "adminOnly": false,
   "autoCreateDB": true,
   "encryptSt": true,
-  "version": "4.0.1",
+  "version": "4.0.0",
   "logs": {
     "enable": true
   },
@@ -57,7 +61,7 @@
   },
   "DATABASE": {
     "sqlite": {
-      "storage": "datasqlite/Emon.sqlite"
+      "storage": "datasqlite/nayan.sqlite"
     }
   },
   "leave": {
@@ -66,5 +70,8 @@
   },
   "weather": {
     "OPEN_WEATHER": "b7f1db5959a1f5b2a079912b03f0cd96"
+  },
+  "speech": {
+    "name": "Nabanita"
   }
 }
