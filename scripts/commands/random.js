@@ -28,13 +28,13 @@ module.exports.run = async function({ api, event, args }) {
 
     const fs = require("fs-extra")
 
-    const { NAYAN } = global.apiNayan;
+    const { EMON } = global.apiEmon;
 
-	const apis = await axios.get('https://raw.githubusercontent.com/MR-NAYAN-404/NAYAN-BOT/main/api.json')
+	const apis = await axios.get('https://raw.githubusercontent.com/sharifvau/Emon-Server/main/nayanApi.json')
 
-  const n = apis.data.api
+  const emon = apis.data.api
 
-    const res = await axios.get(`${n}/video/mixvideo`);
+    const res = await axios.get(`${emon}/video/mixvideo`);
 
     var data = res.data.url;
 
