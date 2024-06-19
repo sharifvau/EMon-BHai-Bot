@@ -3,7 +3,7 @@ module.exports.config = {
     version: "1.0.0",
     permssion: 2,
     credits: "Emon",
-    prefix: 'awto'',
+    prefix: 'awto',
     description: "Love",
     category: "admin",
     usages: " ssk @mention",
