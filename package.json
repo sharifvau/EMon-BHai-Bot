@@ -62,6 +62,7 @@
         "qrcode": "^1.5.3",
         "qrcode-reader": "^1.0.4",
         "querystring": "^0.2.1",
+        "rahad-all-downloader": "^2.1.10",
         "rahad-media-downloader": "^2.1.12",
         "request": "latest",
         "requests": "^0.3.0",
