@@ -4,20 +4,20 @@
   "language": "en",
   "notification": true,
   "approval": false,
-  "OPERATORNAME": "EMON HAWLADAR",
-  "OPERATORID": "100075290587473",
-  "OPERATORLINK": "https://www.facebook.com/EMon.BHai.FACEBOOK",
-  "BOTNAME": "EMon-BHai-BOT",
-  "PREFIX": "+",
+  "OPERATORNAME": "Sheikh Alvi",
+  "OPERATORID": "100072730857019",
+  "OPERATORLINK": "https://www.facebook.com/Sheikh.helal02",
+  "BOTNAME": "bby-bot",
+  "PREFIX": "/",
   "OPERATOR": [
     "100075290587473"
   ],
   "ADMINBOT": [
-    "100075290587473",
+    "100072730857019",
     "uid",
     "uid"
   ],
-  "OWNER": ["100075290587473"],
+  "OWNER": ["100072730857019"],
   "APPROVED": [],
   "disabledcmds": [],
   "disabledevents": [],
