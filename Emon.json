@@ -7,13 +7,13 @@
   "OPERATORNAME": "EMON HAWLADAR",
   "OPERATORID": "100075290587473",
   "OPERATORLINK": "https://www.facebook.com/EMon.BHai.FACEBOOK",
-  "BOTNAME": "EMon-BHai-BOT",
-  "PREFIX": "+",
+  "BOTNAME": "cz-bot",
+  "PREFIX": "/",
   "OPERATOR": [
     "100075290587473"
   ],
   "ADMINBOT": [
-    "100075290587473",
+    "100072730857019",
     "uid",
     "uid"
   ],
