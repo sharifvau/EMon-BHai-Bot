@@ -22,7 +22,7 @@
   "adminOnly": false,
   "autoCreateDB": true,
   "encryptSt": true,
-  "version": "6.0.1",
+  "version": "4.0.0",
   "logs": {
     "enable": true
   },
