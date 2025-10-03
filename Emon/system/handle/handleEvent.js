@@ -1,12 +1,12 @@
 module.exports = function ({api ,models, Users, Threads, Currencies }) {
-    const logger = require("../../catalogs/Nayanc.js");
+    const logger = require("../../catalogs/Emonc.js");
     const moment = require("moment");
     return function ({ event }) {
         const timeStart = Date.now()
         const time = moment.tz("Asia/Manila").format("HH:MM:ss L");
         const { userBanned, threadBanned } = global.data;
         const { events } = global.client;
-        const { allowInbox } = global.Nayan;
+        const { allowInbox } = global.Emon;
         const { developermode, APPROVED, approval, PREFIX } = global.config;
         var { senderID, threadID } = event;
         senderID = String(senderID);
